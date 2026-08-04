@@ -127,49 +127,63 @@
   }
 
 
-  /* ---- 4b. Löpande faktarad ----------------------------------
-     Fyller raden med kopior tills den är bredare än fönstret, och
-     räknar ut hur långt den ska förflytta sig innan den börjar om.
-     Då blir slingan sömlös oavsett hur många punkter du skriver.
+  /* ---- 4b. Rullande band -------------------------------------
+     Två steg:
+     1) fyll listan med kopior av punkterna tills den är bredare
+        än fönstret, annars blir det tomt i ena kanten
+     2) lägg en kopia av hela listan efter originalet, så att
+        förflyttningen -50 % i CSS landar exakt rätt
 
-     SPEED = pixlar per sekund. Höj för snabbare, sänk för lugnare. */
+     SPEED = pixlar per sekund. Höj för snabbare band, sänk för
+     lugnare. Tempot blir detsamma oavsett hur många punkter du
+     skriver, eftersom längden räknas ut från bredden.          */
   const SPEED = 45;
 
-  const track = document.querySelector(".facts__track");
+  const marqueeTrack = document.querySelector(".facts__track");
 
-  if (track && !reduceMotion) {
-    const original = track.firstElementChild;
+  if (marqueeTrack && !reduceMotion) {
+    const list = marqueeTrack.firstElementChild;
+    const originalItems = Array.from(list.children).map((li) => li.cloneNode(true));
 
     const buildMarquee = () => {
-      // Rensa tidigare kopior så omräkning vid resize blir korrekt
-      while (track.children.length > 1) track.lastElementChild.remove();
+      // Nollställ till ursprungsläget innan vi räknar om
+      marqueeTrack.querySelectorAll("[data-marquee-copy]").forEach((el) => el.remove());
+      list.replaceChildren(...originalItems.map((li) => li.cloneNode(true)));
 
-      const gap = parseFloat(getComputedStyle(track).gap) || 0;
-      const step = original.getBoundingClientRect().width + gap;
-
-      // Kopiera tills raden är minst en skärmbredd längre än ett varv,
-      // annars syns ett tomt glapp precis innan slingan börjar om
-      while (track.getBoundingClientRect().width < step + window.innerWidth) {
-        const copy = original.cloneNode(true);
-        copy.setAttribute("aria-hidden", "true");   // skärmläsare läser bara originalet
-        track.appendChild(copy);
+      // 1) Fyll på tills listan täcker fönstret (max 12 varv som spärr)
+      let guard = 0;
+      while (list.getBoundingClientRect().width < window.innerWidth && guard < 12) {
+        originalItems.forEach((li) => list.appendChild(li.cloneNode(true)));
+        guard += 1;
       }
 
-      track.style.setProperty("--marquee-shift", `${step}px`);
-      track.style.setProperty("--marquee-time", `${step / SPEED}s`);
+      const width = list.getBoundingClientRect().width;
+      if (!width) return;                       // inget att mäta ännu
+
+      // 2) En exakt kopia efter originalet — det är den som gör
+      //    att slingan kan börja om utan synlig skarv
+      const copy = list.cloneNode(true);
+      copy.setAttribute("aria-hidden", "true"); // skärmläsare läser bara originalet
+      copy.setAttribute("data-marquee-copy", "");
+      marqueeTrack.appendChild(copy);
+
+      // Konstant tempo: bred lista tar längre tid, inte högre fart
+      marqueeTrack.style.animationDuration = `${(width / SPEED).toFixed(2)}s`;
     };
 
     buildMarquee();
 
-    // Räkna om när fönstret ändrar storlek eller typsnitten landar
-    let marqueeTimer;
-    window.addEventListener("resize", () => {
-      clearTimeout(marqueeTimer);
-      marqueeTimer = setTimeout(buildMarquee, 200);
-    });
+    // Typsnitten ändrar textbredden — räkna om när de landat
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(buildMarquee);
     }
+
+    // Och när fönstret ändrar storlek
+    let marqueeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(marqueeTimer);
+      marqueeTimer = setTimeout(buildMarquee, 250);
+    });
   }
 
 
