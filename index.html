@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VERA Nutrition — väntelista inför lanseringen</title>
-<meta name="description" content="VERA Nutrition öppnar snart med två produkter: rent kreatinmonohydrat och vassleprotein. Tillverkat i Sverige. Ställ dig i kön.">
+<title>VERA Nutrition — Väntelista & Kollektion</title>
+<meta name="description" content="VERA Nutrition öppnar snart med rena kosttillskott och exklusiva träningskläder. Tillverkat i Sverige. Ställ dig i kön.">
 
 <!-- Länkar till typsnitt -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,10 +15,10 @@
 </head>
 
 <body>
-<!-- KOMMENTAR: Hoppa-till-innehåll länk för tillgänglighet -->
+<!-- KOMMENTAR: Hoppa-till-innehåll länk för tillgänglighet (Accessibility) -->
 <a class="skip" href="#hero">Hoppa till innehåll</a>
 
-<!-- TOPPRAD -->
+<!-- TOPPRAD / NAVIGATION -->
 <header class="masthead" id="masthead">
   <div class="shell masthead__inner">
     <a class="wordmark" href="#hero" aria-label="VERA Nutrition, till toppen">
@@ -26,6 +26,7 @@
     </a>
     <nav class="menu" aria-label="Huvudmeny">
       <a href="#sortiment">Sortiment</a>
+      <a href="#kollektion">Kollektion</a>
       <a href="#historia">Historia</a>
       <a href="#standard">Standard</a>
       <a href="#vantelista" class="menu__cta">Väntelista</a>
@@ -34,7 +35,7 @@
 </header>
 
 <main>
-<!-- HERO -->
+<!-- HERO SEKTION -->
 <section class="hero" id="hero">
   <div class="shell hero__inner">
     <div class="hero__lede">
@@ -42,14 +43,14 @@
       <h1 class="display">
         <span class="mask" data-seq><span>Rent kreatin</span></span>
         <span class="mask" data-seq><span>Rent vassle</span></span>
-        <span class="mask" data-seq><span>Ingenting däremellan</span></span>
+        <span class="mask" data-seq><span>Kläder & Ingenting däremellan</span></span>
       </h1>
       <p class="lede" data-seq>
-        VERA Nutrition öppnar snart med två produkter. Tillverkade i Sverige,
-        med hela innehållsförteckningen tryckt på burken.
+        VERA Nutrition öppnar snart med noggrant utvalda produkter och exklusiv apparel. 
+        Tillverkat i Sverige för högsta prestanda.
       </p>
 
-      <!-- KOMMENTAR: Formulär för väntelista kopplat till e-post och kö-räknare -->
+      <!-- KOMMENTAR: Formulär för väntelista med e-post och automatisk kö-uppdatering -->
       <form class="signup" data-seq novalidate action="mailto:info@veranutrition.co" method="POST" enctype="text/plain">
         <div class="signup__row">
           <div class="input">
@@ -62,20 +63,20 @@
         <p class="signup__msg" role="status" aria-live="polite"></p>
       </form>
 
-      <!-- KOMMENTAR: Kö-räknare som sparar värdet lokalt i webbläsaren -->
+      <!-- KOMMENTAR: Live-räknare för köande -->
       <p class="queue" data-seq>
         <b id="queue-count" data-count-to="1247">1247</b> står i kön
       </p>
     </div>
 
     <figure class="still anim-float" data-seq>
-      <!-- KOMMENTAR: Hero-bild med flytande animation -->
+      <!-- KOMMENTAR: Huvudbild med flytande animation -->
       <img src="Heroo.png" alt="VERA Pure Creatine Monohydrate och 100% Whey Protein" width="1800" height="1690" data-drift="0.045">
     </figure>
   </div>
 </section>
 
-<!-- RULLANDE BAND -->
+<!-- RULLANDE BAND / MARQUEE -->
 <section class="facts">
   <span class="rule" data-reveal></span>
   <div class="facts__viewport">
@@ -83,7 +84,7 @@
       <ul class="facts__list">
         <li>Tillverkat i Sverige</li>
         <li>100 % kreatinmonohydrat</li>
-        <li>25 g protein per portion</li>
+        <li>Exklusiv träningskollektion</li>
         <li>Ingen mellanhand</li>
         <li>Oberoende tredjepartstestat</li>
       </ul>
@@ -92,7 +93,7 @@
   <span class="rule" data-reveal></span>
 </section>
 
-<!-- SORTIMENT -->
+<!-- SORTIMENT: KOSTTILLSKOTT -->
 <section class="section" id="sortiment">
   <div class="shell">
     <header class="head">
@@ -101,7 +102,7 @@
     </header>
   </div>
 
-  <!-- Produkt 01 -->
+  <!-- Produkt 01: Kreatin -->
   <article class="product">
     <div class="shell product__inner">
       <figure class="product__still" data-reveal>
@@ -113,8 +114,7 @@
         <h3 class="product__name" data-reveal>Pure Creatine<br>Monohydrate</h3>
         <p class="product__text" data-reveal>
           Öka styrka, kraft och prestation med vårt premiumkreatin. Tillverkat i
-          Sverige med råvaror av hög kvalitet, för muskeltillväxt, snabbare
-          återhämtning och bättre träningsresultat.
+          Sverige med råvaror av hög kvalitet för optimal muskeltillväxt.
         </p>
 
         <dl class="spec" data-reveal>
@@ -128,7 +128,7 @@
     </div>
   </article>
 
-  <!-- Produkt 02 -->
+  <!-- Produkt 02: Protein -->
   <article class="product product--flip">
     <div class="shell product__inner">
       <figure class="product__still" data-reveal>
@@ -140,8 +140,7 @@
         <h3 class="product__name" data-reveal>100 % Whey<br>Protein</h3>
         <p class="product__text" data-reveal>
           VERA Whey Protein tillverkas i Sverige med råvaror av premiumkvalitet,
-          för muskeltillväxt, återhämtning och daglig prestation. En ren och
-          pålitlig proteinkälla för hela träningsresan.
+          för muskeltillväxt, återhämtning och daglig prestation.
         </p>
 
         <dl class="spec" data-reveal>
@@ -156,6 +155,58 @@
   </article>
 </section>
 
+<!-- APPAREL & KOLLEKTION (Med dina nya bilder integrerade pro-style) -->
+<section class="section collection-showcase" id="kollektion">
+  <div class="shell">
+    <header class="head">
+      <p class="label" data-reveal>The VERA Collection</p>
+      <h2 class="title" data-reveal>Kläder och tillbehör för din träningsresa</h2>
+      <p class="lede" data-reveal style="max-width: 600px; margin-top: 1rem;">
+        Utforska vår exklusiva första kollektion av träningskläder, vattenflaskor och accessoarer som matchar din livsstil.
+      </p>
+    </header>
+
+    <!-- Grid för de 4 bilderna med snygg layout -->
+    <div class="collection-grid">
+      <!-- Bild 1: Collection3 -->
+      <figure class="collection-card" data-reveal>
+        <img src="Collection3.jpg" alt="VERA Träningskit med matta och kläder" loading="lazy">
+        <figcaption class="collection-caption">
+          <span>01 / Kit & Accessoarer</span>
+          <h4>Complete Flow Set</h4>
+        </figcaption>
+      </figure>
+
+      <!-- Bild 2: Sweatshirt -->
+      <figure class="collection-card" data-reveal>
+        <img src="Sweatshirt.jpg" alt="VERA Oversized Sweatshirt" loading="lazy">
+        <figcaption class="collection-caption">
+          <span>02 / Apparel</span>
+          <h4>Signature Sweatshirt</h4>
+        </figcaption>
+      </figure>
+
+      <!-- Bild 3: Collection1 -->
+      <figure class="collection-card" data-reveal>
+        <img src="Collection1.jpg" alt="VERA Sport-BH och träningsutrustning" loading="lazy">
+        <figcaption class="collection-caption">
+          <span>03 / Performance</span>
+          <h4>Athletic Sports Bra</h4>
+        </figcaption>
+      </figure>
+
+      <!-- Bild 4: Collection2 -->
+      <figure class="collection-card" data-reveal>
+        <img src="Collection2.jpg" alt="VERA Träningsleggings och gummiband" loading="lazy">
+        <figcaption class="collection-caption">
+          <span>04 / Essentials</span>
+          <h4>Seamless Leggings</h4>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- VÅR HISTORIA -->
 <section class="section story" id="historia">
   <div class="shell story__inner">
@@ -165,13 +216,11 @@
       <p class="story__text" data-reveal>
         VERA började med människor. Genom en coachingverksamhet hjälpte vi över
         1 500 klienter runt om i världen — och en fråga återkom hela tiden:
-        <em>var kan jag köpa kosttillskott som jag faktiskt kan lita på?</em>
+        <em>var kan jag köpa kosttillskott och utrustning som jag faktiskt kan lita på?</em>
       </p>
       <p class="story__text" data-reveal>
         Så vi byggde företaget vi själva önskade fanns. Vi valde
-        tillverkningspartner i Sverige med omsorg, utvecklade varje formel med
-        avsikt och lät oberoende tredjepart testa resultatet — så att kvaliteten
-        är verifierad, inte bara utlovad.
+        tillverkningspartner i Sverige med omsorg och lät oberoende tredjepart testa resultatet.
       </p>
       <dl class="figures" data-reveal>
         <div><dt>Klienter genom coachingen</dt><dd>1 500+</dd></div>
@@ -180,29 +229,10 @@
       </dl>
     </div>
 
-    <!-- KOMMENTAR: Founders-bilden med hover-effekt -->
+    <!-- KOMMENTAR: Grundarbild -->
     <figure class="story__still img-hover-zoom" data-reveal>
       <img src="founder.png" alt="VERA Nutritions grundare" data-drift="0.02">
     </figure>
-  </div>
-</section>
-
-<!-- CITAT -->
-<section class="creed">
-  <div class="shell">
-    <span class="rule" data-reveal></span>
-    <blockquote class="creed__quote">
-      <p>
-        <span class="mask" data-reveal><span>De beslut ingen ser</span></span>
-        <span class="mask" data-reveal><span>är ofta de som betyder mest.</span></span>
-      </p>
-      <p class="creed__tail" data-reveal>
-        Vårt ansvar är inte bara att skapa produkter. Det är att förtjäna
-        förtroendet som produkterna står för.
-      </p>
-      <footer class="label" data-reveal>Ur VERA:s varumärkesbok</footer>
-    </blockquote>
-    <span class="rule" data-reveal></span>
   </div>
 </section>
 
@@ -215,75 +245,18 @@
     </header>
     <ul class="pillar-list">
       <li class="pillar" data-reveal>
-        <div class="pillar__word">
-          <h3>Kunskap</h3>
-        </div>
-        <p class="pillar__text">
-          Informerade människor fattar bättre beslut. Utbildningen kom före
-          produkterna och är fortfarande en del av vårt syfte.
-        </p>
+        <div class="pillar__word"><h3>Kunskap</h3></div>
+        <p class="pillar__text">Informerade människor fattar bättre beslut. Utbildningen kom före produkterna.</p>
       </li>
       <li class="pillar" data-reveal>
-        <div class="pillar__word">
-          <h3>Förtroende</h3>
-        </div>
-        <p class="pillar__text">
-          Förtroende kan varken designas in i en logotyp eller köpas för
-          annonspengar. Det växer långsamt, när ord och handling stämmer
-          överens över tid.
-        </p>
+        <div class="pillar__word"><h3>Förtroende</h3></div>
+        <p class="pillar__text">Förtroende växer långsamt, när ord och handling stämmer överens över tid.</p>
       </li>
       <li class="pillar" data-reveal>
-        <div class="pillar__word">
-          <h3>Kvalitet</h3>
-        </div>
-        <p class="pillar__text">
-          Kvalitet är ett sätt att tänka, inte ett moment: lyssna på kunderna,
-          undersöka råvarorna, välja tillverkare med omsorg och verifiera genom
-          oberoende tester.
-        </p>
+        <div class="pillar__word"><h3>Kvalitet</h3></div>
+        <p class="pillar__text">Kvalitet är ett sätt att tänka, inte ett moment i tillverkningen.</p>
       </li>
     </ul>
-  </div>
-</section>
-
-<!-- VERA-STANDARDEN -->
-<section class="section standard" id="standard">
-  <div class="shell">
-    <header class="head">
-      <p class="label" data-reveal>VERA-standarden</p>
-      <h2 class="title" data-reveal>Samma sju steg, varje gång</h2>
-    </header>
-    <ol class="steps">
-      <li data-reveal><span>01</span>Lyssna på vår community</li>
-      <li data-reveal><span>02</span>Undersöka med ett syfte</li>
-      <li data-reveal><span>03</span>Utveckla genomtänkta formler</li>
-      <li data-reveal><span>04</span>Arbeta med noggrant utvalda tillverkare</li>
-      <li data-reveal><span>05</span>Verifiera kvaliteten genom oberoende tester</li>
-      <li data-reveal><span>06</span>Fortsätta lära och förbättra</li>
-      <li data-reveal><span>07</span>Förtjäna förtroendet och börja om</li>
-    </ol>
-    <p class="standard__ask" data-reveal>
-      Innan en produkt får bära namnet VERA ställer vi en sista fråga:
-      <em>skulle vi rekommendera den här till vår egen familj?</em>
-      Är svaret nej, fortsätter vi inte vidare.
-    </p>
-  </div>
-</section>
-
-<!-- GALLERI -->
-<section class="section gallery" id="ogonblick">
-  <div class="shell">
-    <header class="head">
-      <p class="label" data-reveal>Våra ögonblick</p>
-      <h2 class="title" data-reveal>Människorna bakom burkarna</h2>
-    </header>
-    <div class="gallery__grid">
-      <figure data-reveal><img src="Gallery1.jpg" alt="Ur VERA:s bildarkiv" loading="lazy"></figure>
-      <figure data-reveal><img src="Gallery2.jpg" alt="Ur VERA:s bildarkiv" loading="lazy"></figure>
-      <figure data-reveal><img src="Gallery3.jpg" alt="Ur VERA:s bildarkiv" loading="lazy"></figure>
-      <figure data-reveal><img src="Gallery4.jpg" alt="Ur VERA:s bildarkiv" loading="lazy"></figure>
-    </div>
   </div>
 </section>
 
@@ -294,11 +267,9 @@
       <p class="label" data-reveal>Första batchen är begränsad</p>
       <h2 class="display display--sm" data-reveal>Ställ dig i kön innan vi öppnar</h2>
       <p class="lede" data-reveal>
-        Vi bygger inte VERA för nästa produktlansering, utan för nästa
-        generation. Du får länken till försäljningen innan den läggs ut
-        publikt.
+        Du får länken till försäljningen innan den läggs ut publikt. 
+        Gäller både tillskott och den nya klädkollektionen.
       </p>
-      <!-- KOMMENTAR: Det nedre väntelistoformuläret som också skickar till e-post och uppdaterar räknaren -->
       <form class="signup" data-reveal novalidate action="mailto:info@veranutrition.co" method="POST" enctype="text/plain">
         <div class="signup__row">
           <div class="input">
@@ -331,37 +302,33 @@
       <nav class="foot__col" aria-label="Sidfot, sidor">
         <p class="label">Sidan</p>
         <a href="#sortiment">Sortiment</a>
-        <a href="#loften">Löften</a>
+        <a href="#kollektion">Kollektion</a>
         <a href="#vantelista">Väntelista</a>
       </nav>
       
-      <!-- KOMMENTAR: Kontaktkolumn med ikoner för e-post och telefon -->
+      <!-- KOMMENTAR: Kontaktkolumn med e-post och telefon och ikoner -->
       <div class="foot__col">
         <p class="label">Kontakt</p>
         <a href="mailto:info@veranutrition.co">
-          <!-- Mejl-ikon -->
           <svg class="foot-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           info@veranutrition.co
         </a>
         <a href="tel:+46739847253">
-          <!-- Telefon-ikon -->
           <svg class="foot-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           +46 73 984 72 53
         </a>
       </div>
 
-      <!-- KOMMENTAR: Följ-kolumn med ikoner för Instagram och TikTok -->
+      <!-- KOMMENTAR: Följ-kolumn med Instagram och TikTok med ikoner -->
       <div class="foot__col">
         <p class="label">Följ</p>
         <a href="https://www.instagram.com/veranutrition87" target="_blank" rel="noopener">
-          <!-- Instagram-ikon -->
           <svg class="foot-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          @veranutrition87
+          Instagram @veranutrition87
         </a>
         <a href="https://www.tiktok.com/@veranutrition87" target="_blank" rel="noopener">
-          <!-- TikTok-ikon -->
           <svg class="foot-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-          @veranutrition87
+          TikTok @veranutrition87
         </a>
         <a href="https://veranutrition.co">veranutrition.co</a>
       </div>
@@ -375,19 +342,19 @@
   </div>
 </footer>
 
-<!-- KOMMENTAR: JavaScript som hanterar kö-räknaren och sparar den permanent i webbläsaren -->
+<!-- KOMMENTAR: JavaScript som hanterar kö-räknaren, localStorage och skickar till info@veranutrition.co -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const queueElement = document.getElementById("queue-count");
   const storageKey = "vera_queue_count";
   
-  // Hämtar sparat värde från webbläsarens localStorage, eller sätter grundvärdet 1247
+  // Hämtar sparad kö-siffra från webbläsarens localStorage, eller standard 1247
   let currentCount = localStorage.getItem(storageKey) ? parseInt(localStorage.getItem(storageKey)) : 1247;
   if (queueElement) {
     queueElement.textContent = currentCount;
   }
 
-  // Lyssna på alla formulärinlämningar (väntelistan)
+  // Hanterar formulärinlämningar för att öka kön och ge respons
   const forms = document.querySelectorAll(".signup");
   forms.forEach(form => {
     form.addEventListener("submit", (e) => {
@@ -395,7 +362,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const msg = form.querySelector(".signup__msg");
       
       if (emailInput && emailInput.value.trim() !== "") {
-        // Öka antalet i kön när någon registrerar sig
         currentCount++;
         localStorage.setItem(storageKey, currentCount);
         
