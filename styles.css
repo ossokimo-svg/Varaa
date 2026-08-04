@@ -312,7 +312,7 @@ button, input { font: inherit; color: inherit; }
 
 /* Höjden styr, inte bredden — då sitter märket lika bra
    oavsett om filen är V:et eller hela ordet VERA. */
-.wordmark img { height: clamp(20px, 3.2vw, 26px); width: auto; }
+.wordmark img { height: clamp(40px, 6.4vw, 52px); width: auto; }
 
 .menu { display: flex; align-items: center; gap: clamp(1.1rem, 3vw, 2.5rem); }
 .menu a {
@@ -397,34 +397,73 @@ button, input { font: inherit; color: inherit; }
 
 
 /* ------------------------------------------------------------
-   7. FAKTARAD
+   7. FAKTARAD — löpande rad (marquee)
+
+   Så här hänger det ihop:
+   .facts__viewport  klipper av raden och tonar ut kanterna
+   .facts__track     är det som rör sig; script.js fyller den med
+                     kopior och sätter --marquee-shift (en kopias
+                     bredd) samt animationens längd
+   .facts__list      själva punkterna — texten redigeras i HTML
+
+   Vill du ha den åt andra hållet: byt tecken i translate3d nedan.
+   Vill du ändra hastigheten: SPEED i script.js.
    ------------------------------------------------------------ */
+.facts {
+  --facts-gap: clamp(2.5rem, 6vw, 5rem);
+  padding-block: 0;
+}
+
+.facts__viewport {
+  overflow: hidden;
+  padding-block: 1.35rem;
+  /* Texten tonar ut mot kanterna i stället för att kapas tvärt */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.facts__track {
+  display: flex;
+  gap: var(--facts-gap);
+  width: max-content;
+  will-change: transform;
+  animation: marquee var(--marquee-time, 30s) linear infinite;
+}
+/* Stannar när man håller muspekaren över — lättare att läsa */
+.facts__viewport:hover .facts__track { animation-play-state: paused; }
+
 .facts__list {
-  display: grid;
-  gap: 1px;
-  background: var(--rule);          /* linjerna mellan cellerna */
+  display: flex;
+  gap: var(--facts-gap);
+  flex: 0 0 auto;
 }
 .facts__list li {
-  padding: 1.15rem 0;
-  background: var(--paper);
+  display: flex;
+  align-items: center;
+  gap: var(--facts-gap);
+  white-space: nowrap;
   font-family: var(--mono);
   font-size: .72rem;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
+/* Liten romb som skiljetecken mellan punkterna */
+.facts__list li::after {
+  content: "";
+  width: 5px; height: 5px;
+  background: var(--mint);
+  transform: rotate(45deg);
+}
 
-@media (min-width: 48rem) {
-  .facts__list {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-  .facts__list li {
-    padding: 1.35rem clamp(1rem, 2.5vw, 2rem);
-    border-left: 1px solid var(--rule);
-    background: transparent;
-  }
-  .facts__list li:first-child { padding-left: 0; border-left: 0; }
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(calc(-1 * var(--marquee-shift, 50%)), 0, 0); }
+}
+
+/* Står stilla för den som valt bort rörelse i systemet */
+@media (prefers-reduced-motion: reduce) {
+  .facts__track { animation: none; }
 }
 
 
@@ -727,7 +766,7 @@ button, input { font: inherit; color: inherit; }
   padding-block: clamp(2.5rem, 6vw, 4rem);
 }
 
-.foot__brand img { height: 30px; width: auto; margin-bottom: 1rem; }
+.foot__brand img { height: 60px; width: auto; margin-bottom: 1.25rem; }
 
 .foot__col { display: grid; gap: .6rem; align-content: start; }
 .foot__col .label { margin-bottom: .5rem; }
