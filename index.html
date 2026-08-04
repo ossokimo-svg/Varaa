@@ -3,29 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- ============================================================
-     VERA NUTRITION — VÄNTELISTA
-     Vanilla HTML / CSS / JS. Inga ramverk, ingen byggkedja.
-     index.html · styles.css · script.js
-     Bilderna ligger bredvid index.html i repot.
-
-     All synlig text ligger i den här filen.
-     Färger, typskala och mått: tokenblocket överst i styles.css.
-     ============================================================ -->
-
 <title>VERA Nutrition — väntelista inför lanseringen</title>
 <meta name="description" content="VERA Nutrition öppnar snart med två produkter: rent kreatinmonohydrat och vassleprotein. Tillverkat i Sverige. Ställ dig i kön.">
 
-<meta property="og:title" content="VERA Nutrition — väntelista">
-<meta property="og:description" content="Rent kreatin. Rent vassle. Ingenting däremellan.">
-<meta property="og:image" content="Creatine.png">
-<meta property="og:type" content="website">
-
-<link rel="icon" href="Logo.png">
-
-<!-- Schibsted Grotesk bär all sättning, IBM Plex Mono all data och
-     alla etiketter. Logotypen är sidans enda serif — medvetet. -->
+<!-- Länkar till typsnitt -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -36,56 +17,37 @@
 <body>
 <a class="skip" href="#hero">Hoppa till innehåll</a>
 
-<!-- ============================================================
-     TOPPRAD
-     ============================================================ -->
+<!-- TOPPRAD -->
 <header class="masthead" id="masthead">
   <div class="shell masthead__inner">
-
     <a class="wordmark" href="#hero" aria-label="VERA Nutrition, till toppen">
-      <!-- V-märket. Byt filen mot din Logo.png (endast V) — höjden styrs av CSS -->
       <img src="Logo.png" alt="VERA Nutrition" width="900" height="275">
     </a>
-
     <nav class="menu" aria-label="Huvudmeny">
       <a href="#sortiment">Sortiment</a>
       <a href="#historia">Historia</a>
       <a href="#standard">Standard</a>
       <a href="#vantelista" class="menu__cta">Väntelista</a>
     </nav>
-
   </div>
 </header>
 
-
 <main>
-
-<!-- ============================================================
-     1. HERO
-     Rubriken är tre rader som stiger upp bakom var sin mask.
-     Radbrytningen är innehåll, inte tillfällighet — ändra du.
-     ============================================================ -->
+<!-- HERO -->
 <section class="hero" id="hero">
   <div class="shell hero__inner">
-
     <div class="hero__lede">
-
       <p class="label" data-seq>Väntelista · Sverige</p>
-
       <h1 class="display">
         <span class="mask" data-seq><span>Rent kreatin.</span></span>
         <span class="mask" data-seq><span>Rent vassle.</span></span>
         <span class="mask" data-seq><span>Ingenting däremellan.</span></span>
       </h1>
-
       <p class="lede" data-seq>
         VERA Nutrition öppnar snart med två produkter. Tillverkade i Sverige,
         med hela innehållsförteckningen tryckt på burken.
       </p>
 
-      <!-- ---- Väntelisteformulär ----
-           Alla formulär med klassen .signup delar samma hanterare
-           i script.js. Kopiera blocket fritt. -->
       <form class="signup" data-seq novalidate>
         <div class="signup__row">
           <div class="input">
@@ -101,33 +63,18 @@
       <p class="queue" data-seq>
         <b data-count-to="1247">0</b> står i kön
       </p>
-
     </div>
 
-    <!-- ---- Stilleben: båda burkarna i en bild ----
-         Filen är urklippt mot transparent bakgrund. Byt den fritt —
-         bredden styrs av CSS, inte av width-attributet. -->
-    <figure class="still" data-seq>
-      <img src="Heroo.png"
-           alt="VERA Pure Creatine Monohydrate och 100% Whey Protein"
-           width="1800" height="1690" data-drift="0.045">
+    <figure class="still anim-float" data-seq>
+      <!-- KOMMENTAR: Lagt till klassen "anim-float" för lite extra animation -->
+      <img src="Heroo.png" alt="VERA Pure Creatine Monohydrate och 100% Whey Protein" width="1800" height="1690" data-drift="0.045">
     </figure>
-
   </div>
 </section>
 
-
-<!-- ============================================================
-     2. RULLANDE BAND
-     Skriv punkterna EN gång i listan nedan. script.js kopierar
-     dem så att slingan blir sömlös — du ska aldrig behöva skriva
-     samma text två gånger.
-     Hastighet: SPEED i script.js. Riktning: @keyframes marquee
-     i styles.css.
-     ============================================================ -->
+<!-- RULLANDE BAND -->
 <section class="facts">
   <span class="rule" data-reveal></span>
-
   <div class="facts__viewport">
     <div class="facts__track">
       <ul class="facts__list">
@@ -139,14 +86,10 @@
       </ul>
     </div>
   </div>
-
   <span class="rule" data-reveal></span>
 </section>
 
-
-<!-- ============================================================
-     3. SORTIMENT — två produkter, två uppslag
-     ============================================================ -->
+<!-- SORTIMENT -->
 <section class="section" id="sortiment">
   <div class="shell">
     <header class="head">
@@ -155,12 +98,11 @@
     </header>
   </div>
 
-  <!-- ---- Produkt 01 ---- -->
+  <!-- Produkt 01 -->
   <article class="product">
     <div class="shell product__inner">
-
       <figure class="product__still" data-reveal>
-        <img src="Ccreatine.png" alt="Burk med VERA Pure Creatine Monohydrate" width="890" height="1106" data-drift="0.05">
+        <img src="Ccreatine.png" alt="Burk med VERA Pure Creatine Monohydrate">
       </figure>
 
       <div class="product__data">
@@ -178,19 +120,16 @@
           <div><dt>Per dos</dt><dd>5 g</dd></div>
           <div><dt>Innehåll</dt><dd>100 % kreatinmonohydrat</dd></div>
         </dl>
-
         <a class="ulink" href="#vantelista" data-reveal>Ställ mig i kön</a>
       </div>
-
     </div>
   </article>
 
-  <!-- ---- Produkt 02 — spegelvänd ---- -->
+  <!-- Produkt 02 -->
   <article class="product product--flip">
     <div class="shell product__inner">
-
       <figure class="product__still" data-reveal>
-        <img src="Pprotein.png" alt="Burk med VERA 100% Whey Protein i vanilj" width="890" height="1106" data-drift="0.05">
+        <img src="Pprotein.png" alt="Burk med VERA 100% Whey Protein i vanilj">
       </figure>
 
       <div class="product__data">
@@ -208,26 +147,18 @@
           <div><dt>Protein per dos</dt><dd>25 g</dd></div>
           <div><dt>Smak</dt><dd>Vanilj</dd></div>
         </dl>
-
         <a class="ulink" href="#vantelista" data-reveal>Ställ mig i kön</a>
       </div>
-
     </div>
   </article>
 </section>
 
-
-<!-- ============================================================
-     3c. VÅR HISTORIA
-     Texten kommer ur varumärkesboken (sidan "Our Story").
-     ============================================================ -->
+<!-- VÅR HISTORIA -->
 <section class="section story" id="historia">
   <div class="shell story__inner">
-
     <div class="story__copy">
       <p class="label" data-reveal>Vår historia</p>
       <h2 class="title" data-reveal>Det började inte med en produkt</h2>
-
       <p class="story__text" data-reveal>
         VERA började med människor. Genom en coachingverksamhet hjälpte vi över
         1 500 klienter runt om i världen — och en fråga återkom hela tiden:
@@ -237,10 +168,8 @@
         Så vi byggde företaget vi själva önskade fanns. Vi valde
         tillverkningspartner i Sverige med omsorg, utvecklade varje formel med
         avsikt och lät oberoende tredjepart testa resultatet — så att kvaliteten
-        är verifierad, inte bara utlovad. Tillsammans med HALAVIT tar vi också in
-        svensktillverkade vitaminer i VERA-familjen.
+        är verifierad, inte bara utlovad.
       </p>
-
       <dl class="figures" data-reveal>
         <div><dt>Klienter genom coachingen</dt><dd>1 500+</dd></div>
         <div><dt>Tillverkning</dt><dd>Sverige</dd></div>
@@ -248,18 +177,14 @@
       </dl>
     </div>
 
-    <figure class="story__still" data-reveal>
-      <img src="Founders.png" alt="VERA Nutritions grundare" width="1200" height="987" data-drift="0.04">
+    <!-- KOMMENTAR: Detta är din founders-bild. Den kommer nu sträcka ut sig snyggt och fylla rutan -->
+    <figure class="story__still img-hover-zoom" data-reveal>
+      <img src="Founders.png" alt="VERA Nutritions grundare" data-drift="0.02">
     </figure>
-
   </div>
 </section>
 
-
-<!-- ============================================================
-     3b. CITAT — ur VERA:s varumärkesbok
-     Raderna stiger upp en och en, precis som hero-rubriken.
-     ============================================================ -->
+<!-- CITAT -->
 <section class="creed">
   <div class="shell">
     <span class="rule" data-reveal></span>
@@ -278,20 +203,13 @@
   </div>
 </section>
 
-
-<!-- ============================================================
-     4. TRE PELARE
-     Aqoon, Kalsooni och Tayo är varumärkesbokens egna ord.
-     Den svenska översättningen står under, i mono.
-     ============================================================ -->
+<!-- TRE PELARE -->
 <section class="section pillars" id="pelare">
   <div class="shell">
-
     <header class="head">
       <p class="label" data-reveal>Tre pelare</p>
       <h2 class="title" data-reveal>Orden vi bygger företaget på</h2>
     </header>
-
     <ul class="pillar-list">
       <li class="pillar" data-reveal>
         <div class="pillar__word">
@@ -303,7 +221,6 @@
           produkterna och är fortfarande en del av vårt syfte.
         </p>
       </li>
-
       <li class="pillar" data-reveal>
         <div class="pillar__word">
           <h3>Kalsooni</h3>
@@ -315,7 +232,6 @@
           överens över tid.
         </p>
       </li>
-
       <li class="pillar" data-reveal>
         <div class="pillar__word">
           <h3>Tayo</h3>
@@ -328,24 +244,16 @@
         </p>
       </li>
     </ul>
-
   </div>
 </section>
 
-
-<!-- ============================================================
-     4b. VERA-STANDARDEN
-     Här är numreringen befogad — det är en verklig process, och
-     ordningen bär information.
-     ============================================================ -->
+<!-- VERA-STANDARDEN -->
 <section class="section standard" id="standard">
   <div class="shell">
-
     <header class="head">
       <p class="label" data-reveal>VERA-standarden</p>
       <h2 class="title" data-reveal>Samma sju steg, varje gång</h2>
     </header>
-
     <ol class="steps">
       <li data-reveal><span>01</span>Lyssna på vår community</li>
       <li data-reveal><span>02</span>Undersöka med ett syfte</li>
@@ -355,53 +263,41 @@
       <li data-reveal><span>06</span>Fortsätta lära och förbättra</li>
       <li data-reveal><span>07</span>Förtjäna förtroendet — och börja om</li>
     </ol>
-
     <p class="standard__ask" data-reveal>
       Innan en produkt får bära namnet VERA ställer vi en sista fråga:
       <em>skulle vi rekommendera den här till vår egen familj?</em>
       Är svaret nej fortsätter vi arbeta.
     </p>
-
   </div>
 </section>
 
-
-<!-- ============================================================
-     4c. GALLERI
-     Byt bilderna genom att ersätta Gallery1–4 i repot.
-     ============================================================ -->
+<!-- GALLERI -->
 <section class="section gallery" id="ogonblick">
   <div class="shell">
     <header class="head">
       <p class="label" data-reveal>Våra ögonblick</p>
       <h2 class="title" data-reveal>Människorna bakom burkarna</h2>
     </header>
-
     <div class="gallery__grid">
-      <figure data-reveal><img src="Gallery1.jpg" alt="Ur VERA:s bildarkiv" width="1400" height="935" loading="lazy"></figure>
-      <figure data-reveal><img src="Gallery2.jpg" alt="Ur VERA:s bildarkiv" width="1400" height="933" loading="lazy"></figure>
-      <figure data-reveal><img src="Gallery3.jpg" alt="Ur VERA:s bildarkiv" width="1400" height="935" loading="lazy"></figure>
-      <figure data-reveal><img src="Gallery4.jpg" alt="Ur VERA:s bildarkiv" width="1400" height="935" loading="lazy"></figure>
+      <figure data-reveal><img src="Gallery1.jpg" alt="Ur VERA:s bildarkiv" loading="lazy"></figure>
+      <figure data-reveal><img src="Gallery2.jpg" alt="Ur VERA:s bildarkiv" loading="lazy"></figure>
+      <figure data-reveal><img src="Gallery3.jpg" alt="Ur VERA:s bildarkiv" loading="lazy"></figure>
+      <figure data-reveal><img src="Gallery4.jpg" alt="Ur VERA:s bildarkiv" loading="lazy"></figure>
     </div>
   </div>
 </section>
 
-
-<!-- ============================================================
-     5. VÄNTELISTA — sista anhalten
-     ============================================================ -->
+<!-- VÄNTELISTA SISTA -->
 <section class="closing" id="vantelista">
   <div class="shell closing__inner">
-
     <div class="closing__copy">
       <p class="label" data-reveal>Första batchen är begränsad</p>
       <h2 class="display display--sm" data-reveal>Ställ dig i kön innan vi öppnar</h2>
       <p class="lede" data-reveal>
         Vi bygger inte VERA för nästa produktlansering, utan för nästa
         generation. Du får länken till försäljningen innan den läggs ut
-        publikt, och lanseringspriset så länge lagret räcker.
+        publikt.
       </p>
-
       <form class="signup" data-reveal novalidate>
         <div class="signup__row">
           <div class="input">
@@ -413,48 +309,34 @@
         </div>
         <p class="signup__msg" role="status" aria-live="polite"></p>
       </form>
-
       <p class="fine" data-reveal>Ett mejl när vi öppnar. Avregistrera när du vill.</p>
     </div>
-
-    <!-- Byt bilden fritt — den ligger urklippt mot bakgrunden -->
-    <figure class="closing__still" data-reveal>
+    <figure class="closing__still anim-float" data-reveal>
       <img src="Hoodie.png" alt="Person i VERA-tröja" width="847" height="933" data-drift="0.04">
     </figure>
-
   </div>
 </section>
-
 </main>
 
-
-<!-- ============================================================
-     6. SIDFOT
-     ============================================================ -->
 <footer class="foot">
   <div class="shell">
     <span class="rule" data-reveal></span>
-
     <div class="foot__grid">
       <div class="foot__brand">
-        <!-- Hela ordmärket -->
         <img src="Logohel.png" alt="VERA Nutrition" width="900" height="275">
         <p class="label">Vera for everyone</p>
       </div>
-
       <nav class="foot__col" aria-label="Sidfot, sidor">
         <p class="label">Sidan</p>
         <a href="#sortiment">Sortiment</a>
         <a href="#loften">Löften</a>
         <a href="#vantelista">Väntelista</a>
       </nav>
-
       <div class="foot__col">
         <p class="label">Kontakt</p>
         <a href="mailto:info@veranutrition.co">info@veranutrition.co</a>
         <a href="tel:+46739847253">+46 73 984 72 53</a>
       </div>
-
       <div class="foot__col">
         <p class="label">Följ</p>
         <a href="https://www.instagram.com/veranutrition87" target="_blank" rel="noopener">Instagram @veranutrition87</a>
@@ -462,7 +344,6 @@
         <a href="https://veranutrition.co">veranutrition.co</a>
       </div>
     </div>
-
     <p class="foot__legal">
       <span>© <span id="ar">2026</span> VERA Nutrition</span>
       <span>Kosttillskott ersätter inte en varierad kost.</span>
