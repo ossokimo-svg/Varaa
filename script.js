@@ -127,6 +127,52 @@
   }
 
 
+  /* ---- 4b. Löpande faktarad ----------------------------------
+     Fyller raden med kopior tills den är bredare än fönstret, och
+     räknar ut hur långt den ska förflytta sig innan den börjar om.
+     Då blir slingan sömlös oavsett hur många punkter du skriver.
+
+     SPEED = pixlar per sekund. Höj för snabbare, sänk för lugnare. */
+  const SPEED = 45;
+
+  const track = document.querySelector(".facts__track");
+
+  if (track && !reduceMotion) {
+    const original = track.firstElementChild;
+
+    const buildMarquee = () => {
+      // Rensa tidigare kopior så omräkning vid resize blir korrekt
+      while (track.children.length > 1) track.lastElementChild.remove();
+
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      const step = original.getBoundingClientRect().width + gap;
+
+      // Kopiera tills raden är minst en skärmbredd längre än ett varv,
+      // annars syns ett tomt glapp precis innan slingan börjar om
+      while (track.getBoundingClientRect().width < step + window.innerWidth) {
+        const copy = original.cloneNode(true);
+        copy.setAttribute("aria-hidden", "true");   // skärmläsare läser bara originalet
+        track.appendChild(copy);
+      }
+
+      track.style.setProperty("--marquee-shift", `${step}px`);
+      track.style.setProperty("--marquee-time", `${step / SPEED}s`);
+    };
+
+    buildMarquee();
+
+    // Räkna om när fönstret ändrar storlek eller typsnitten landar
+    let marqueeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(marqueeTimer);
+      marqueeTimer = setTimeout(buildMarquee, 200);
+    });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(buildMarquee);
+    }
+  }
+
+
   /* ---- 5. Räknare --------------------------------------------
      Antalet står i data-count-to i index.html.                 */
   const counters = document.querySelectorAll("[data-count-to]");
