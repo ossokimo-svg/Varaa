@@ -15,6 +15,7 @@
 </head>
 
 <body>
+<!-- KOMMENTAR: Hoppa-till-innehåll länk för tillgänglighet -->
 <a class="skip" href="#hero">Hoppa till innehåll</a>
 
 <!-- TOPPRAD -->
@@ -48,7 +49,8 @@
         med hela innehållsförteckningen tryckt på burken.
       </p>
 
-      <form class="signup" data-seq novalidate>
+      <!-- KOMMENTAR: Formulär för väntelista kopplat till e-post och kö-räknare -->
+      <form class="signup" data-seq novalidate action="mailto:info@veranutrition.co" method="POST" enctype="text/plain">
         <div class="signup__row">
           <div class="input">
             <label class="sr-only" for="mejl-hero">E-postadress</label>
@@ -60,13 +62,14 @@
         <p class="signup__msg" role="status" aria-live="polite"></p>
       </form>
 
+      <!-- KOMMENTAR: Kö-räknare som sparar värdet lokalt i webbläsaren -->
       <p class="queue" data-seq>
-        <b data-count-to="1247">0</b> står i kön
+        <b id="queue-count" data-count-to="1247">1247</b> står i kön
       </p>
     </div>
 
     <figure class="still anim-float" data-seq>
-      <!-- KOMMENTAR: Lagt till klassen "anim-float" för lite extra animation -->
+      <!-- KOMMENTAR: Hero-bild med flytande animation -->
       <img src="Heroo.png" alt="VERA Pure Creatine Monohydrate och 100% Whey Protein" width="1800" height="1690" data-drift="0.045">
     </figure>
   </div>
@@ -177,7 +180,7 @@
       </dl>
     </div>
 
-    <!-- KOMMENTAR: Detta är din founders-bild. Den kommer nu sträcka ut sig snyggt och fylla rutan -->
+    <!-- KOMMENTAR: Founders-bilden med hover-effekt -->
     <figure class="story__still img-hover-zoom" data-reveal>
       <img src="founder.png" alt="VERA Nutritions grundare" data-drift="0.02">
     </figure>
@@ -295,7 +298,8 @@
         generation. Du får länken till försäljningen innan den läggs ut
         publikt.
       </p>
-      <form class="signup" data-reveal novalidate>
+      <!-- KOMMENTAR: Det nedre väntelistoformuläret som också skickar till e-post och uppdaterar räknaren -->
+      <form class="signup" data-reveal novalidate action="mailto:info@veranutrition.co" method="POST" enctype="text/plain">
         <div class="signup__row">
           <div class="input">
             <label class="sr-only" for="mejl-slut">E-postadress</label>
@@ -315,6 +319,7 @@
 </section>
 </main>
 
+<!-- SIDFOT -->
 <footer class="foot">
   <div class="shell">
     <span class="rule" data-reveal></span>
@@ -329,24 +334,84 @@
         <a href="#loften">Löften</a>
         <a href="#vantelista">Väntelista</a>
       </nav>
+      
+      <!-- KOMMENTAR: Kontaktkolumn med ikoner för e-post och telefon -->
       <div class="foot__col">
         <p class="label">Kontakt</p>
-        <a href="mailto:info@veranutrition.co">info@veranutrition.co</a>
-        <a href="tel:+46739847253">+46 73 984 72 53</a>
+        <a href="mailto:info@veranutrition.co">
+          <!-- Mejl-ikon -->
+          <svg class="foot-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          info@veranutrition.co
+        </a>
+        <a href="tel:+46739847253">
+          <!-- Telefon-ikon -->
+          <svg class="foot-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +46 73 984 72 53
+        </a>
       </div>
+
+      <!-- KOMMENTAR: Följ-kolumn med ikoner för Instagram och TikTok -->
       <div class="foot__col">
         <p class="label">Följ</p>
-        <a href="https://www.instagram.com/veranutrition87" target="_blank" rel="noopener">Instagram @veranutrition87</a>
-        <a href="https://www.tiktok.com/@veranutrition87" target="_blank" rel="noopener">TikTok @veranutrition87</a>
+        <a href="https://www.instagram.com/veranutrition87" target="_blank" rel="noopener">
+          <!-- Instagram-ikon -->
+          <svg class="foot-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          Instagram @veranutrition87
+        </a>
+        <a href="https://www.tiktok.com/@veranutrition87" target="_blank" rel="noopener">
+          <!-- TikTok-ikon -->
+          <svg class="foot-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          TikTok @veranutrition87
+        </a>
         <a href="https://veranutrition.co">veranutrition.co</a>
       </div>
     </div>
+    
+    <!-- KOMMENTAR: Copyright och länkad OriginX-text längst ner -->
     <p class="foot__legal">
-      <span>© <span id="ar">2026</span> VERA Nutrition</span>
+      <span>© <span id="ar">2026</span> VERA Nutrition — by <a href="https://originx.se" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">OriginX</a></span>
       <span>Kosttillskott ersätter inte en varierad kost.</span>
     </p>
   </div>
 </footer>
+
+<!-- KOMMENTAR: JavaScript som hanterar kö-räknaren och sparar den permanent i webbläsaren -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const queueElement = document.getElementById("queue-count");
+  const storageKey = "vera_queue_count";
+  
+  // Hämtar sparat värde från webbläsarens localStorage, eller sätter grundvärdet 1247
+  let currentCount = localStorage.getItem(storageKey) ? parseInt(localStorage.getItem(storageKey)) : 1247;
+  if (queueElement) {
+    queueElement.textContent = currentCount;
+  }
+
+  // Lyssna på alla formulärinlämningar (väntelistan)
+  const forms = document.querySelectorAll(".signup");
+  forms.forEach(form => {
+    form.addEventListener("submit", (e) => {
+      const emailInput = form.querySelector("input[type='email']");
+      const msg = form.querySelector(".signup__msg");
+      
+      if (emailInput && emailInput.value.trim() !== "") {
+        // Öka antalet i kön när någon registrerar sig
+        currentCount++;
+        localStorage.setItem(storageKey, currentCount);
+        
+        if (queueElement) {
+          queueElement.textContent = currentCount;
+        }
+        
+        if (msg) {
+          msg.textContent = "Tack! Du är nu tillagd i kön.";
+          msg.style.color = "var(--mint, #2d5a3b)";
+        }
+      }
+    });
+  });
+});
+</script>
 
 <script src="script.js"></script>
 </body>
