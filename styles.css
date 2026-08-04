@@ -397,21 +397,22 @@ button, input { font: inherit; color: inherit; }
 
 
 /* ------------------------------------------------------------
-   7. FAKTARAD — löpande rad (marquee)
+   7. RULLANDE BAND
 
-   Så här hänger det ihop:
-   .facts__viewport  klipper av raden och tonar ut kanterna
-   .facts__track     är det som rör sig; script.js fyller den med
-                     kopior och sätter --marquee-shift (en kopias
-                     bredd) samt animationens längd
-   .facts__list      själva punkterna — texten redigeras i HTML
+   Principen: .facts__track innehåller listan TVÅ gånger (den
+   andra kopian skapar script.js). När spåret förflyttat sig
+   exakt -50 % står kopian där originalet började, och slingan
+   kan börja om utan att det syns.
 
-   Vill du ha den åt andra hållet: byt tecken i translate3d nedan.
-   Vill du ändra hastigheten: SPEED i script.js.
+   Därför är förflyttningen en procentsats och inte pixlar — den
+   stämmer oavsett hur mycket text du skriver.
+
+   Redigera texten:      index.html
+   Ändra hastigheten:    SPEED i script.js
+   Byt riktning:         ta bort minustecknet nedan
    ------------------------------------------------------------ */
 .facts {
   --facts-gap: clamp(2.5rem, 6vw, 5rem);
-  padding-block: 0;
 }
 
 .facts__viewport {
@@ -424,23 +425,26 @@ button, input { font: inherit; color: inherit; }
 
 .facts__track {
   display: flex;
-  gap: var(--facts-gap);
   width: max-content;
   will-change: transform;
-  animation: marquee var(--marquee-time, 30s) linear infinite;
+  /* Skrivs som separata egenskaper, inte som shorthand — då kan
+     script.js ändra längden utan att animationen slutar gälla. */
+  animation-name: marquee;
+  animation-duration: 40s;          /* script.js räknar om den */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
-/* Stannar när man håller muspekaren över — lättare att läsa */
+/* Stannar när muspekaren är över — annars hinner man inte läsa */
 .facts__viewport:hover .facts__track { animation-play-state: paused; }
 
-.facts__list {
-  display: flex;
-  gap: var(--facts-gap);
-  flex: 0 0 auto;
-}
+.facts__list { display: flex; flex: 0 0 auto; }
+
 .facts__list li {
   display: flex;
   align-items: center;
-  gap: var(--facts-gap);
+  /* Marginalen sitter på varje punkt, inte som gap på listan.
+     Då blir avståndet lika stort även över skarven mellan kopiorna. */
+  margin-right: var(--facts-gap);
   white-space: nowrap;
   font-family: var(--mono);
   font-size: .72rem;
@@ -448,17 +452,18 @@ button, input { font: inherit; color: inherit; }
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-/* Liten romb som skiljetecken mellan punkterna */
+/* Liten romb som skiljetecken efter varje punkt */
 .facts__list li::after {
   content: "";
   width: 5px; height: 5px;
+  margin-left: var(--facts-gap);
   background: var(--mint);
   transform: rotate(45deg);
 }
 
 @keyframes marquee {
   from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(calc(-1 * var(--marquee-shift, 50%)), 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
 
 /* Står stilla för den som valt bort rörelse i systemet */
