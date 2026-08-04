@@ -22,7 +22,7 @@
 
   --shell:    1320px;
   --gutter:   clamp(1.5rem, 5.5vw, 4.5rem);
-  --section:  clamp(5.5rem, 13vw, 10rem);
+  --section:  clamp(3rem, 7vw, 5rem);
   --ease: cubic-bezier(.19, 1, .22, 1);
 }
 
