@@ -434,9 +434,6 @@ button, input { font: inherit; color: inherit; }
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-/* Stannar när muspekaren är över — annars hinner man inte läsa */
-.facts__viewport:hover .facts__track { animation-play-state: paused; }
-
 .facts__list { display: flex; flex: 0 0 auto; }
 
 .facts__list li {
