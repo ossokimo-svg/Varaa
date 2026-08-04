@@ -108,7 +108,7 @@
          Filen är urklippt mot transparent bakgrund. Byt den fritt —
          bredden styrs av CSS, inte av width-attributet. -->
     <figure class="still" data-seq>
-      <img src="Heroo.png"
+      <img src="Creatine-protein.png"
            alt="VERA Pure Creatine Monohydrate och 100% Whey Protein"
            width="1800" height="1690" data-drift="0.045">
     </figure>
@@ -118,19 +118,29 @@
 
 
 <!-- ============================================================
-     2. FAKTARAD
+     2. FAKTARAD — löper hela tiden
+     Redigera bara punkterna i listan nedan. Kopiorna som behövs
+     för att slingan ska bli sömlös skapas av script.js, så du ska
+     aldrig behöva skriva samma text två gånger.
+     Hastighet och riktning ändras i script.js (SPEED) respektive
+     styles.css (@keyframes marquee).
      ============================================================ -->
 <section class="facts">
-  <div class="shell">
-    <span class="rule" data-reveal></span>
-    <ul class="facts__list">
-      <li data-reveal>Tillverkat i Sverige</li>
-      <li data-reveal>100 % kreatinmonohydrat</li>
-      <li data-reveal>25 g protein per portion</li>
-      <li data-reveal>Ingen mellanhand</li>
-    </ul>
-    <span class="rule" data-reveal></span>
+  <span class="rule" data-reveal></span>
+
+  <div class="facts__viewport">
+    <div class="facts__track">
+      <ul class="facts__list">
+        <li>Tillverkat i Sverige</li>
+        <li>100 % kreatinmonohydrat</li>
+        <li>25 g protein per portion</li>
+        <li>Ingen mellanhand</li>
+        <li>Oberoende tredjepartstestat</li>
+      </ul>
+    </div>
   </div>
+
+  <span class="rule" data-reveal></span>
 </section>
 
 
@@ -369,9 +379,9 @@
 
     <div class="gallery__grid">
       <figure data-reveal><img src="Gallery1.jpg" alt="Ur VERA:s bildarkiv" width="1400" height="935" loading="lazy"></figure>
-      <figure data-reveal><img src="Gallery2.JPG" alt="Ur VERA:s bildarkiv" width="1400" height="933" loading="lazy"></figure>
+      <figure data-reveal><img src="Gallery2.jpg" alt="Ur VERA:s bildarkiv" width="1400" height="933" loading="lazy"></figure>
       <figure data-reveal><img src="Gallery3.jpg" alt="Ur VERA:s bildarkiv" width="1400" height="935" loading="lazy"></figure>
-      <figure data-reveal><img src="Gallery4.JPG" alt="Ur VERA:s bildarkiv" width="1400" height="935" loading="lazy"></figure>
+      <figure data-reveal><img src="Gallery4.jpg" alt="Ur VERA:s bildarkiv" width="1400" height="935" loading="lazy"></figure>
     </div>
   </div>
 </section>
