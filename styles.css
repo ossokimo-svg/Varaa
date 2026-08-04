@@ -1,37 +1,37 @@
 /* ============================================================
-   VERA NUTRITION — STYLES
-   ============================================================ */
+   VERA NUTRITION — STYLES
+   ============================================================ */
 
 :root {
-  --paper:      #EFEDE8;
-  --paper-2:    #E7E4DD;
-  --ink:        #16181A;
-  --ink-soft:   #63686A;
-  --rule:       #D3CFC7;
-  --mint:       #16745E;
-  --mint-tint:  #DDEAE4;
+  --paper:      #EFEDE8;
+  --paper-2:    #E7E4DD;
+  --ink:        #16181A;
+  --ink-soft:   #63686A;
+  --rule:       #D3CFC7;
+  --mint:       #16745E;
+  --mint-tint:  #DDEAE4;
 
-  --sans: "Schibsted Grotesk", -apple-system, "Segoe UI", Helvetica, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --sans: "Schibsted Grotesk", -apple-system, "Segoe UI", Helvetica, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --fs-display: clamp(2.5rem, 6.6vw, 5.1rem);
-  --fs-title:   clamp(1.75rem, 3.6vw, 2.75rem);
-  --fs-name:    clamp(1.5rem, 3vw, 2.15rem);
-  --fs-lede:    clamp(1.02rem, 1.5vw, 1.18rem);
-  --fs-label:   0.7rem;
+  --fs-display: clamp(2.5rem, 6.6vw, 5.1rem);
+  --fs-title:   clamp(1.75rem, 3.6vw, 2.75rem);
+  --fs-name:    clamp(1.5rem, 3vw, 2.15rem);
+  --fs-lede:    clamp(1.02rem, 1.5vw, 1.18rem);
+  --fs-label:   0.7rem;
 
-  --shell:    1320px;
-  --gutter:   clamp(1.5rem, 5.5vw, 4.5rem);
-  --section:  clamp(3rem, 7vw, 5rem);
-  --ease: cubic-bezier(.19, 1, .22, 1);
+  --shell:    1320px;
+  --gutter:   clamp(1.5rem, 5.5vw, 4.5rem);
+  --section:  clamp(5.5rem, 13vw, 10rem);
+  --ease: cubic-bezier(.19, 1, .22, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  margin: 0; background: var(--paper); color: var(--ink);
-  font-family: var(--sans); font-size: 1rem; line-height: 1.6;
-  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--sans); font-size: 1rem; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -118,9 +118,9 @@ button, input { font: inherit; color: inherit; }
 /* Nya Animationsklasser för flyt & inzoomning */
 .anim-float { animation: floating 6s ease-in-out infinite; }
 @keyframes floating {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
 }
 
 .img-hover-zoom { overflow: hidden; border-radius: 12px; }
@@ -128,8 +128,8 @@ button, input { font: inherit; color: inherit; }
 .img-hover-zoom:hover img { transform: scale(1.05); }
 
 @media (min-width: 64rem) {
-  .hero__inner { grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); align-items: center; gap: clamp(2rem, 4vw, 4rem); }
-  .still { padding-bottom: 0; width: 112%; margin-right: -12%; }
+  .hero__inner { grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); align-items: center; gap: clamp(2rem, 4vw, 4rem); }
+  .still { padding-bottom: 0; width: 112%; margin-right: -12%; }
 }
 
 /* RULLANDE BAND */
@@ -148,23 +148,23 @@ button, input { font: inherit; color: inherit; }
 
 /* ÄNDRAT: Bilden tar nu hela ytan och har mjuka moderna hörn. Ingen grå ruta. */
 .product__still {
-  margin: 0;
-  display: block;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); /* Snygg, lyxig skugga under bilden */
-  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
-  aspect-ratio: 4 / 5; /* Håller en snygg stående proportion */
+  margin: 0;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); /* Snygg, lyxig skugga under bilden */
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+  aspect-ratio: 4 / 5; /* Håller en snygg stående proportion */
 }
 .product__still:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
 }
 .product__still img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Fyller ut hela formen snyggt utan gråa kanter */
-  will-change: transform;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fyller ut hela formen snyggt utan gråa kanter */
+  will-change: transform;
 }
 
 .product__data .label { margin-bottom: 1.5rem; }
@@ -175,8 +175,8 @@ button, input { font: inherit; color: inherit; }
 .spec dt { font-family: var(--mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
 .spec dd { font-family: var(--mono); font-size: .92rem; text-align: right; }
 @media (min-width: 62rem) {
-  .product__inner { grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(3rem, 7vw, 6rem); }
-  .product--flip .product__still { order: 2; }
+  .product__inner { grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(3rem, 7vw, 6rem); }
+  .product--flip .product__still { order: 2; }
 }
 
 /* CITAT */
@@ -225,53 +225,53 @@ button, input { font: inherit; color: inherit; }
 
 /* Layout för den nya kollektions-sektionen med bilderna */
 .collection-showcase {
-  padding: 6rem 0;
+  padding: 6rem 0;
 }
 
 .collection-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 .collection-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #f4f4f4;
-  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f4f4f4;
+  margin: 0;
 }
 
 .collection-card img {
-  width: 100%;
-  height: 380px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .collection-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .collection-caption {
-  padding: 1.2rem;
-  background: #fff;
+  padding: 1.2rem;
+  background: #fff;
 }
 
 .collection-caption span {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #666;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #666;
 }
 
 .collection-caption h4 {
-  font-size: 1.1rem;
-  margin-top: 0.3rem;
-  color: #111;
-  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 0.3rem;
+  color: #111;
+  font-weight: 600;
 }
 
 /* GALLERI */
@@ -317,10 +317,10 @@ button, input { font: inherit; color: inherit; }
 /* KOMMENTAR: Har inaktiverat 'prefers-reduced-motion' spärren för att animationerna ska synas för alla */
 /*
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
-  [data-seq], [data-reveal] { opacity: 1; transform: none; }
-  .mask > span { transform: none; }
-  .rule, .rule[data-reveal] { transform: scaleX(1); }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  [data-seq], [data-reveal] { opacity: 1; transform: none; }
+  .mask > span { transform: none; }
+  .rule, .rule[data-reveal] { transform: scaleX(1); }
 }
 */
