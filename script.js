@@ -141,7 +141,10 @@
 
   const marqueeTrack = document.querySelector(".facts__track");
 
-  if (marqueeTrack && !reduceMotion) {
+  // Kopiorna byggs alltid, även för den som valt bort rörelse —
+  // då står bandet stilla men ser ändå komplett ut. Det är CSS
+  // (media queryn längst ned i styles.css) som stoppar rörelsen.
+  if (marqueeTrack) {
     const list = marqueeTrack.firstElementChild;
     const originalItems = Array.from(list.children).map((li) => li.cloneNode(true));
 
