@@ -1,28 +1,19 @@
 /* ============================================================
    VERA NUTRITION — SCRIPT
-   Vanilla JS, inga beroenden. Varje del är fristående och
-   tiger om dess markup saknas.
-
-   1. Rörelseinställning      4. Drift (parallax)
-   2. Topprad                 5. Räknare
-   3. Öppningssekvens         6. Formulär
-      + scroll-reveals
    ============================================================ */
 
 (function () {
   "use strict";
 
-  /* ---- 1. Respektera systemets "minska rörelse" -------------- */
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* KOMMENTAR: Ändrat till 'false' för att tvinga rullbandet och animationer att 
+     köra även på datorer som har stängt av systemanimationer */
+  const reduceMotion = false; 
   const finePointer = window.matchMedia("(pointer: fine)").matches;
 
-  /* Fördröjning mellan stegen i öppningssekvensen (ms). */
   const STEP = 110;
 
-
-  /* ---- 2. Topprad -------------------------------------------- */
+  /* TOPPRAD */
   const masthead = document.getElementById("masthead");
-
   const onScroll = () => {
     if (masthead) masthead.classList.toggle("is-stuck", window.scrollY > 20);
   };
@@ -30,25 +21,19 @@
   window.addEventListener("scroll", onScroll, { passive: true });
 
 
-  /* ---- 3a. Öppningssekvens -----------------------------------
-     Elementen med data-seq spelas upp i dokumentordning när
-     typsnitten är laddade — annars hoppar sättningen mitt i. */
+  /* ÖPPNINGSSEKVENS */
   const sequence = Array.from(document.querySelectorAll("[data-seq]"));
-
   const play = () => {
     sequence.forEach((el, i) => {
       el.style.transitionDelay = reduceMotion ? "0ms" : `${i * STEP}ms`;
       el.classList.add("is-in");
     });
-
-    // Städa bort fördröjningarna efteråt så de inte påverkar hover
     window.setTimeout(() => {
       sequence.forEach((el) => (el.style.transitionDelay = ""));
     }, sequence.length * STEP + 1400);
   };
 
   if (document.fonts && document.fonts.ready) {
-    // Vänta på typsnitten, men aldrig längre än en sekund
     Promise.race([
       document.fonts.ready,
       new Promise((resolve) => setTimeout(resolve, 1000))
@@ -58,16 +43,13 @@
   }
 
 
-  /* ---- 3b. Scroll-reveals ------------------------------------
-     Syskon som kommer in samtidigt förskjuts lätt inbördes. */
+  /* SCROLL-REVEALS */
   const revealables = document.querySelectorAll("[data-reveal]");
-
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealables.forEach((el) => el.classList.add("is-in"));
   } else {
     let batch = [];
     let flushTimer = null;
-
     const flush = () => {
       batch.forEach((el, i) => {
         el.style.transitionDelay = `${i * 70}ms`;
@@ -75,7 +57,6 @@
       });
       batch = [];
     };
-
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -88,72 +69,47 @@
       },
       { threshold: 0.2, rootMargin: "0px 0px -6% 0px" }
     );
-
     revealables.forEach((el) => observer.observe(el));
   }
 
 
-  /* ---- 4. Drift ----------------------------------------------
-     Bilder med data-drift förskjuts några pixlar i takt med
-     scrollen. Talet är hur många pixlar per scrollad pixel —
-     håll det under 0.08, annars blir det en effekt.            */
+  /* DRIFT (PARALLAX) */
   const drifters = Array.from(document.querySelectorAll("[data-drift]"));
-
   if (drifters.length && !reduceMotion) {
     let ticking = false;
-
     const update = () => {
       const mid = window.innerHeight / 2;
-
       drifters.forEach((el) => {
         const rect = el.getBoundingClientRect();
         if (rect.bottom < -200 || rect.top > window.innerHeight + 200) return;
         const offset = (rect.top + rect.height / 2 - mid) * parseFloat(el.dataset.drift);
         el.style.transform = `translate3d(0, ${(-offset).toFixed(2)}px, 0)`;
       });
-
       ticking = false;
     };
-
     const request = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(update);
     };
-
     update();
     window.addEventListener("scroll", request, { passive: true });
     window.addEventListener("resize", request);
   }
 
 
-  /* ---- 4b. Rullande band -------------------------------------
-     Två steg:
-     1) fyll listan med kopior av punkterna tills den är bredare
-        än fönstret, annars blir det tomt i ena kanten
-     2) lägg en kopia av hela listan efter originalet, så att
-        förflyttningen -50 % i CSS landar exakt rätt
-
-     SPEED = pixlar per sekund. Höj för snabbare band, sänk för
-     lugnare. Tempot blir detsamma oavsett hur många punkter du
-     skriver, eftersom längden räknas ut från bredden.          */
+  /* RULLANDE BAND */
   const SPEED = 45;
-
   const marqueeTrack = document.querySelector(".facts__track");
 
-  // Kopiorna byggs alltid, även för den som valt bort rörelse —
-  // då står bandet stilla men ser ändå komplett ut. Det är CSS
-  // (media queryn längst ned i styles.css) som stoppar rörelsen.
   if (marqueeTrack) {
     const list = marqueeTrack.firstElementChild;
     const originalItems = Array.from(list.children).map((li) => li.cloneNode(true));
 
     const buildMarquee = () => {
-      // Nollställ till ursprungsläget innan vi räknar om
       marqueeTrack.querySelectorAll("[data-marquee-copy]").forEach((el) => el.remove());
       list.replaceChildren(...originalItems.map((li) => li.cloneNode(true)));
 
-      // 1) Fyll på tills listan täcker fönstret (max 12 varv som spärr)
       let guard = 0;
       while (list.getBoundingClientRect().width < window.innerWidth && guard < 12) {
         originalItems.forEach((li) => list.appendChild(li.cloneNode(true)));
@@ -161,27 +117,20 @@
       }
 
       const width = list.getBoundingClientRect().width;
-      if (!width) return;                       // inget att mäta ännu
+      if (!width) return;
 
-      // 2) En exakt kopia efter originalet — det är den som gör
-      //    att slingan kan börja om utan synlig skarv
       const copy = list.cloneNode(true);
-      copy.setAttribute("aria-hidden", "true"); // skärmläsare läser bara originalet
+      copy.setAttribute("aria-hidden", "true");
       copy.setAttribute("data-marquee-copy", "");
       marqueeTrack.appendChild(copy);
 
-      // Konstant tempo: bred lista tar längre tid, inte högre fart
       marqueeTrack.style.animationDuration = `${(width / SPEED).toFixed(2)}s`;
     };
 
     buildMarquee();
-
-    // Typsnitten ändrar textbredden — räkna om när de landat
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(buildMarquee);
     }
-
-    // Och när fönstret ändrar storlek
     let marqueeTimer;
     window.addEventListener("resize", () => {
       clearTimeout(marqueeTimer);
@@ -190,21 +139,16 @@
   }
 
 
-  /* ---- 5. Räknare --------------------------------------------
-     Antalet står i data-count-to i index.html.                 */
+  /* RÄKNARE */
   const counters = document.querySelectorAll("[data-count-to]");
-
   const countUp = (el) => {
     const target = parseInt(el.dataset.countTo, 10) || 0;
-
     if (reduceMotion) {
       el.textContent = target.toLocaleString("sv-SE");
       return;
     }
-
     const duration = 1600;
     const started = performance.now();
-
     const tick = (now) => {
       const p = Math.min((now - started) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 4);
@@ -231,11 +175,8 @@
   }
 
 
-  /* ---- 6. Formulär -------------------------------------------
-     Fram tills ni kopplar in en tjänst skickas ingenting vidare.
-     Byt innehållet i sendEmail() mot ett riktigt anrop.        */
+  /* FORMULÄR */
   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
   const TEXT = {
     empty:   "Skriv in din e-postadress först.",
     invalid: "Adressen ser inte komplett ut — kontrollera den.",
@@ -243,15 +184,6 @@
     failed:  "Adressen kunde inte sparas. Försök igen om en stund."
   };
 
-  /**
-   * Skicka adressen vidare. Ersätt kroppen med t.ex.:
-   *
-   *   return fetch("https://din-endpoint.se/vantelista", {
-   *     method: "POST",
-   *     headers: { "Content-Type": "application/json" },
-   *     body: JSON.stringify({ email })
-   *   }).then((res) => { if (!res.ok) throw new Error(res.status); });
-   */
   function sendEmail(email) {
     console.log("Väntelista:", email);
     return new Promise((resolve) => setTimeout(resolve, 600));
@@ -292,8 +224,6 @@
         await sendEmail(email);
         form.classList.add("is-done");
         say(TEXT.done, false);
-
-        // Räknaren speglar den nya anmälan
         counters.forEach((el) => {
           const next = (parseInt(el.textContent.replace(/\D/g, ""), 10) || 0) + 1;
           el.textContent = next.toLocaleString("sv-SE");
@@ -306,8 +236,7 @@
     });
   });
 
-
-  /* ---- Årtal i sidfoten -------------------------------------- */
+  /* Årtal i sidfoten */
   const year = document.getElementById("ar");
   if (year) year.textContent = new Date().getFullYear();
 
