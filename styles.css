@@ -182,7 +182,7 @@ button, input { font: inherit; color: inherit; }
    1. HÄR JUSTERAR DU AVSTÅNDET MELLAN PRODUKT OCH VÅR HISTORIA
    ============================================================ */
 #sortiment {
-  padding-bottom: 0.8rem; /* Ändra detta värde för att öka/minska glappet under produkterna */
+  padding-bottom: 0.2rem; /* Ändra detta värde för att öka/minska glappet under produkterna */
 }
 
 
@@ -204,7 +204,7 @@ button, input { font: inherit; color: inherit; }
    2. HÄR JUSTERAR DU AVSTÅNDET MELLAN VÅR HISTORIA OCH TRE PELARE
    ============================================================ */
 #historia {
-  padding-bottom: 1rem; /* Ändra detta värde för att ändra glappet under historien */
+  padding-bottom: 0.2rem; /* Ändra detta värde för att ändra glappet under historien */
 }
 
 
@@ -224,7 +224,7 @@ button, input { font: inherit; color: inherit; }
    3. HÄR JUSTERAR DU AVSTÅNDET MELLAN TRE PELARE OCH VÄNTELISTA
    ============================================================ */
 #pelare {
-  padding-bottom: 1rem; /* Ändra detta värde för att ändra glappet under pelarna */
+  padding-bottom: 0.2rem; /* Ändra detta värde för att ändra glappet under pelarna */
 }
 
 
