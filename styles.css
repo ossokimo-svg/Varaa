@@ -189,10 +189,10 @@ button, input { font: inherit; color: inherit; }
 
 /* VÅR HISTORIA */
 .story__inner { display: grid; gap: clamp(3rem, 7vw, 4.5rem); }
-.story .label { margin-bottom: 1.25rem; }
-.story__text { margin-top: 1.5rem; color: var(--ink-soft); font-size: var(--fs-lede); max-width: 36rem; }
+.story .label { margin-bottom: 0.25rem; }
+.story__text { margin-top: 0.5rem; color: var(--ink-soft); font-size: var(--fs-lede); max-width: 36rem; }
 .story__text em { font-style: italic; color: var(--ink); }
-.figures { margin-top: clamp(2.5rem, 6vw, 3.5rem); border-top: 1px solid var(--rule); }
+.figures { margin-top: clamp(0.5rem, 6vw, 3.5rem); border-top: 1px solid var(--rule); }
 .figures > div { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding: .85rem 0; border-bottom: 1px solid var(--rule); }
 .figures dt { font-family: var(--mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
 .figures dd { font-family: var(--mono); font-size: .92rem; text-align: right; }
@@ -215,12 +215,12 @@ button, input { font: inherit; color: inherit; }
 
 /* VERA-STANDARDEN */
 .standard { padding-top: 0; }
-.standard .head { margin-bottom: clamp(2.5rem, 6vw, 4rem); }
+.standard .head { margin-bottom: clamp(0.5rem, 6vw, 4rem); }
 .steps { border-top: 1px solid var(--rule); }
 .steps li { display: flex; align-items: baseline; gap: clamp(1.25rem, 4vw, 3rem); padding: 1.1rem 0; border-bottom: 1px solid var(--rule); font-size: clamp(1rem, 1.8vw, 1.2rem); transition: color 0.3s var(--ease); }
 .steps li:hover { color: var(--mint); }
 .steps span { flex: 0 0 auto; font-family: var(--mono); font-size: .78rem; letter-spacing: .12em; color: var(--mint); }
-.standard__ask { margin-top: clamp(2.5rem, 6vw, 3.5rem); max-width: 42rem; color: var(--ink-soft); font-size: var(--fs-lede); }
+.standard__ask { margin-top: clamp(0.5rem, 6vw, 3.5rem); max-width: 42rem; color: var(--ink-soft); font-size: var(--fs-lede); }
 .standard__ask em { font-style: italic; color: var(--ink); }
 
 /* Layout för den nya kollektions-sektionen med bilderna */
