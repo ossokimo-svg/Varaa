@@ -140,21 +140,19 @@ button, input { font: inherit; color: inherit; }
 .facts__list li { display: flex; align-items: center; margin-right: var(--facts-gap); white-space: nowrap; font-family: var(--mono); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
 .facts__list li::after { content: ""; width: 5px; height: 5px; margin-left: var(--facts-gap); background: var(--mint); transform: rotate(45deg); }
 @keyframes marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
-/* KOMMENTAR: @media (prefers-reduced-motion) är borttaget här för att garantera att bandet alltid rullar på datorn! */
 
 /* PRODUKTER */
 .product { padding-top: clamp(3.5rem, 9vw, 7rem); }
 .product__inner { display: grid; gap: clamp(2.5rem, 6vw, 4rem); }
 
-/* ÄNDRAT: Bilden tar nu hela ytan och har mjuka moderna hörn. Ingen grå ruta. */
 .product__still {
   margin: 0;
   display: block;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); /* Snygg, lyxig skugga under bilden */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
   transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
-  aspect-ratio: 4 / 5; /* Håller en snygg stående proportion */
+  aspect-ratio: 4 / 5;
 }
 .product__still:hover {
   transform: translateY(-8px);
@@ -163,7 +161,7 @@ button, input { font: inherit; color: inherit; }
 .product__still img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Fyller ut hela formen snyggt utan gråa kanter */
+  object-fit: cover;
   will-change: transform;
 }
 
@@ -179,13 +177,14 @@ button, input { font: inherit; color: inherit; }
   .product--flip .product__still { order: 2; }
 }
 
-/* CITAT */
-.creed { padding-block: clamp(4.5rem, 11vw, 8rem); }
-.creed__quote { margin: 0; padding-block: clamp(3.5rem, 9vw, 6rem); text-align: center; }
-.creed__quote > p:first-child { font-size: clamp(1.6rem, 4.2vw, 3.1rem); font-weight: 500; letter-spacing: -.03em; line-height: 1.1; max-width: 22ch; margin-inline: auto; }
-.creed__tail { margin: clamp(1.75rem, 4vw, 2.5rem) auto 0; max-width: 40ch; color: var(--ink-soft); font-size: var(--fs-lede); }
-.creed footer { margin-top: clamp(2rem, 5vw, 3rem); display: block; }
-.creed .mask { display: block; }
+
+/* ============================================================
+   1. HÄR JUSTERAR DU AVSTÅNDET MELLAN PRODUKT OCH VÅR HISTORIA
+   ============================================================ */
+#sortiment {
+  padding-bottom: 2rem; /* Ändra detta värde för att öka/minska glappet under produkterna */
+}
+
 
 /* VÅR HISTORIA */
 .story__inner { display: grid; gap: clamp(3rem, 7vw, 4.5rem); }
@@ -196,16 +195,23 @@ button, input { font: inherit; color: inherit; }
 .figures > div { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding: .85rem 0; border-bottom: 1px solid var(--rule); }
 .figures dt { font-family: var(--mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
 .figures dd { font-family: var(--mono); font-size: .92rem; text-align: right; }
-/* ÄNDRAT: Foundersbilden tar nu full plats istället för att vara en liten urklippt gubbe */
 .story__still { margin: 0; display: block; border-radius: 16px; aspect-ratio: 16 / 11; }
 .story__still img { width: 100%; height: 100%; object-fit: cover; }
 @media (min-width: 62rem) { .story__inner { grid-template-columns: 1fr .85fr; align-items: center; gap: clamp(3rem, 6vw, 5rem); } }
+
+
+/* ============================================================
+   2. HÄR JUSTERAR DU AVSTÅNDET MELLAN VÅR HISTORIA OCH TRE PELARE
+   ============================================================ */
+#historia {
+  padding-bottom: 2rem; /* Ändra detta värde för att ändra glappet under historien */
+}
+
 
 /* TRE PELARE */
 .pillars .head { margin-bottom: clamp(3rem, 7vw, 4.5rem); }
 .pillar-list { border-top: 1px solid var(--rule); }
 .pillar { display: grid; gap: 1rem; padding: clamp(2rem, 4.5vw, 3rem) 0; border-bottom: 1px solid var(--rule); transition: background .5s var(--ease), padding-left .4s var(--ease); }
-/* KOMMENTAR: Pelarna "puttas" fram lite när man hovrar över dem */
 .pillar:hover { background: var(--paper-2); padding-left: 1rem; }
 .pillar__word h3 { font-size: clamp(1.9rem, 4.4vw, 3rem); font-weight: 500; letter-spacing: -.03em; transition: color .5s var(--ease); }
 .pillar:hover .pillar__word h3 { color: var(--mint); }
@@ -213,7 +219,16 @@ button, input { font: inherit; color: inherit; }
 .pillar__text { color: var(--ink-soft); max-width: 40rem; }
 @media (min-width: 48rem) { .pillar { grid-template-columns: 16rem 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; padding-inline: clamp(.75rem, 2vw, 1.5rem); margin-inline: clamp(-.75rem, -2vw, -1.5rem); } .pillar:hover { padding-left: clamp(1.25rem, 2.5vw, 2rem); } }
 
-/* VERA-STANDARDEN */
+
+/* ============================================================
+   3. HÄR JUSTERAR DU AVSTÅNDET MELLAN TRE PELARE OCH VÄNTELISTA
+   ============================================================ */
+#pelare {
+  padding-bottom: 2rem; /* Ändra detta värde för att ändra glappet under pelarna */
+}
+
+
+/* VERA-STANDARDEN (om den används) */
 .standard { padding-top: 0; }
 .standard .head { margin-bottom: clamp(0.5rem, 6vw, 4rem); }
 .steps { border-top: 1px solid var(--rule); }
@@ -223,7 +238,7 @@ button, input { font: inherit; color: inherit; }
 .standard__ask { margin-top: clamp(0.5rem, 6vw, 3.5rem); max-width: 42rem; color: var(--ink-soft); font-size: var(--fs-lede); }
 .standard__ask em { font-style: italic; color: var(--ink); }
 
-/* Layout för den nya kollektions-sektionen med bilderna */
+/* Layout för kollektions-sektionen */
 .collection-showcase {
   padding: 6rem 0;
 }
@@ -313,14 +328,3 @@ button, input { font: inherit; color: inherit; }
 .mask[data-seq]:not(.is-in) > span { transform: translateY(105%); }
 .rule[data-reveal] { opacity: 1; transform: scaleX(0); }
 .rule[data-reveal].is-in { transform: scaleX(1); }
-
-/* KOMMENTAR: Har inaktiverat 'prefers-reduced-motion' spärren för att animationerna ska synas för alla */
-/*
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
-  [data-seq], [data-reveal] { opacity: 1; transform: none; }
-  .mask > span { transform: none; }
-  .rule, .rule[data-reveal] { transform: scaleX(1); }
-}
-*/
