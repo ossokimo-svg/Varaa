@@ -182,7 +182,7 @@ button, input { font: inherit; color: inherit; }
    1. HÄR JUSTERAR DU AVSTÅNDET MELLAN PRODUKT OCH VÅR HISTORIA
    ============================================================ */
 #sortiment {
-  padding-bottom: 1rem; /* Ändra detta värde för att öka/minska glappet under produkterna */
+  padding-bottom: 0.8rem; /* Ändra detta värde för att öka/minska glappet under produkterna */
 }
 
 
