@@ -24,7 +24,7 @@
   --gutter:   clamp(1.5rem, 5.5vw, 4.5rem);
   
   /* ↔ AVSTÅND: Globalt sektionsavstånd (Minskat med 50% från ursprungliga clamp(5.5rem, 13vw, 10rem)) */
-  --section:  clamp(1.5rem, 3.5vw, 3rem);
+  --section:  clamp(2rem, 3.5vw, 3rem);
   
   --ease: cubic-bezier(.19, 1, .22, 1);
 }
