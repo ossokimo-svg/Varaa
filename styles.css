@@ -55,7 +55,7 @@ button, input { font: inherit; color: inherit; }
 .title { font-size: var(--fs-title); font-weight: 600; letter-spacing: -.028em; line-height: 1.06; }
 .lede { font-size: var(--fs-lede); color: var(--ink-soft); max-width: 34rem; line-height: 1.62; }
 .head { max-width: 46rem; }
-.head .label { margin-bottom: 1.25rem; }
+.head .label { margin-bottom: 0.75rem; }
 
 .ulink { display: inline-block; font-family: var(--mono); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; padding-bottom: .35rem; background-image: linear-gradient(var(--ink), var(--ink)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 1px; transition: background-size .5s var(--ease), color .3s ease; }
 .ulink:hover { color: var(--mint); background-image: linear-gradient(var(--mint), var(--mint)); background-size: 0 1px; background-position: 100% 100%; }
@@ -165,7 +165,7 @@ button, input { font: inherit; color: inherit; }
   will-change: transform;
 }
 
-.product__data .label { margin-bottom: 1.5rem; }
+.product__data .label { margin-bottom: 0.75rem; }
 .product__name { font-size: var(--fs-name); font-weight: 600; letter-spacing: -.028em; line-height: 1.02; }
 .product__text { margin-top: 1.5rem; color: var(--ink-soft); max-width: 30rem; }
 .spec { margin: 2.25rem 0; border-top: 1px solid var(--rule); }
@@ -291,7 +291,7 @@ button, input { font: inherit; color: inherit; }
 
 /* GALLERI */
 .gallery { padding-top: 0; }
-.gallery .head { margin-bottom: clamp(2.5rem, 6vw, 4rem); }
+.gallery .head { margin-bottom: clamp(1rem, 4vw, 2rem); }
 .gallery__grid { display: grid; gap: clamp(.75rem, 2vw, 1.25rem); grid-auto-rows: clamp(200px, 26vw, 320px); }
 .gallery__grid figure { margin: 0; height: 100%; overflow: hidden; background: var(--paper-2); border-radius: 12px; }
 .gallery__grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
@@ -303,7 +303,7 @@ button, input { font: inherit; color: inherit; }
 .closing { margin-top: var(--section); padding-block: clamp(4rem, 11vw, 7.5rem); background: var(--mint-tint); }
 .closing__inner { display: grid; gap: clamp(3rem, 7vw, 4rem); }
 .closing .lede { margin-top: 1.5rem; color: #4C5C57; }
-.closing .label { margin-bottom: 1.5rem; }
+.closing .label { margin-bottom: 0.75rem; }
 .closing .input input { border-bottom-color: #BBCFC8; }
 .fine { margin-top: 1.5rem; font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; color: #6E807B; }
 .closing__still { margin: 0; display: grid; place-items: center; }
@@ -313,9 +313,9 @@ button, input { font: inherit; color: inherit; }
 /* SIDFOT */
 .foot { padding-block: clamp(3rem, 7vw, 5rem) 2.5rem; }
 .foot__grid { display: grid; gap: 2.5rem; padding-block: clamp(2.5rem, 6vw, 4rem); }
-.foot__brand img { height: 60px; width: auto; margin-bottom: 1.25rem; }
+.foot__brand img { height: 60px; width: auto; margin-bottom: 0.75rem; }
 .foot__col { display: grid; gap: .6rem; align-content: start; }
-.foot__col .label { margin-bottom: .5rem; }
+.foot__col .label { margin-bottom: .2rem; }
 .foot__col a { width: fit-content; font-size: .95rem; color: var(--ink-soft); background-image: linear-gradient(var(--ink), var(--ink)); background-repeat: no-repeat; background-position: 0 100%; background-size: 0 1px; transition: background-size .45s var(--ease), color .3s ease; }
 .foot__col a:hover { color: var(--ink); background-size: 100% 1px; }
 .foot__legal { display: grid; gap: .4rem; padding-top: 1.75rem; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; color: var(--ink-soft); }
