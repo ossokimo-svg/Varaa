@@ -22,7 +22,10 @@
 
   --shell:    1320px;
   --gutter:   clamp(1.5rem, 5.5vw, 4.5rem);
-  --section:  clamp(5.5rem, 13vw, 10rem);
+  
+  /* ↔ AVSTÅND: Globalt sektionsavstånd (Minskat med 50% från ursprungliga clamp(5.5rem, 13vw, 10rem)) */
+  --section:  clamp(2.75rem, 6.5vw, 5rem);
+  
   --ease: cubic-bezier(.19, 1, .22, 1);
 }
 
@@ -43,7 +46,10 @@ button, input { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; }
 
 .shell { width: 100%; max-width: var(--shell); margin-inline: auto; padding-inline: var(--gutter); }
+
+/* ↔ AVSTÅND: Styr toppen och botten på alla standardsektioner (använder --section ovan) */
 .section { padding-block: var(--section); }
+
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .skip { position: absolute; top: -80px; left: var(--gutter); z-index: 99; background: var(--ink); color: var(--paper); padding: .7rem 1.1rem; font-family: var(--mono); font-size: var(--fs-label); letter-spacing: .12em; text-transform: uppercase; transition: top .3s var(--ease); }
 .skip:focus { top: 1rem; }
@@ -103,7 +109,8 @@ button, input { font: inherit; color: inherit; }
 @media (max-width: 33rem) { .menu a:not(.menu__cta) { display: none; } }
 
 /* HERO */
-.hero { padding-top: clamp(8rem, 22vw, 12rem); padding-bottom: 0; }
+/* ↔ AVSTÅND: Topp- och bottenavstånd för Hero-sektionen */
+.hero { padding-top: clamp(4rem, 11vw, 6rem); padding-bottom: 0; }
 .hero__inner { display: grid; gap: clamp(3.5rem, 9vw, 5rem); }
 .hero .label { margin-bottom: clamp(1.75rem, 4vw, 2.5rem); }
 .hero .lede { margin-top: clamp(1.75rem, 3.5vw, 2.25rem); }
@@ -142,7 +149,8 @@ button, input { font: inherit; color: inherit; }
 @keyframes marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 
 /* PRODUKTER */
-.product { padding-top: clamp(3.5rem, 9vw, 7rem); }
+/* ↔ AVSTÅND: Topp-avstånd för produktsektionen (Minskat från clamp(3.5rem, 9vw, 7rem)) */
+.product { padding-top: clamp(1.75rem, 4.5vw, 3.5rem); }
 .product__inner { display: grid; gap: clamp(2.5rem, 6vw, 4rem); }
 
 .product__still {
@@ -181,8 +189,9 @@ button, input { font: inherit; color: inherit; }
 /* ============================================================
    1. HÄR JUSTERAR DU AVSTÅNDET MELLAN PRODUKT OCH VÅR HISTORIA
    ============================================================ */
+/* ↔ AVSTÅND: Bottenmarginal under sortimentet (Minskat från 0.2rem till 0.1rem) */
 #sortiment {
-  padding-bottom: 0.2rem; /* Ändra detta värde för att öka/minska glappet under produkterna */
+  padding-bottom: 0.1rem; 
 }
 
 
@@ -203,8 +212,9 @@ button, input { font: inherit; color: inherit; }
 /* ============================================================
    2. HÄR JUSTERAR DU AVSTÅNDET MELLAN VÅR HISTORIA OCH TRE PELARE
    ============================================================ */
+/* ↔ AVSTÅND: Bottenmarginal under historien (Minskat från 0.2rem till 0.1rem) */
 #historia {
-  padding-bottom: 0.2rem; /* Ändra detta värde för att ändra glappet under historien */
+  padding-bottom: 0.1rem; 
 }
 
 
@@ -223,8 +233,9 @@ button, input { font: inherit; color: inherit; }
 /* ============================================================
    3. HÄR JUSTERAR DU AVSTÅNDET MELLAN TRE PELARE OCH VÄNTELISTA
    ============================================================ */
+/* ↔ AVSTÅND: Bottenmarginal under pelarna (Minskat från 0.2rem till 0.1rem) */
 #pelare {
-  padding-bottom: 0.2rem; /* Ändra detta värde för att ändra glappet under pelarna */
+  padding-bottom: 0.1rem; 
 }
 
 
@@ -239,8 +250,9 @@ button, input { font: inherit; color: inherit; }
 .standard__ask em { font-style: italic; color: var(--ink); }
 
 /* Layout för kollektions-sektionen */
+/* ↔ AVSTÅND: Vaddering runt kollektionsvisningen (Minskat från 6rem till 3rem) */
 .collection-showcase {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .collection-grid {
@@ -300,7 +312,8 @@ button, input { font: inherit; color: inherit; }
 @media (min-width: 68rem) { .gallery__grid { grid-template-columns: repeat(3, 1fr); } .gallery__grid figure:nth-child(1), .gallery__grid figure:nth-child(4) { grid-column: span 2; } }
 
 /* VÄNTELISTA */
-.closing { margin-top: var(--section); padding-block: clamp(2rem, 7vw, 4.5rem); background: var(--mint-tint); }
+/* ↔ AVSTÅND: Topp-marginal och vaddering för avslutande väntelistan (Minskat med 50%) */
+.closing { margin-top: calc(var(--section) / 2); padding-block: clamp(1rem, 3.5vw, 2.25rem); background: var(--mint-tint); }
 .closing__inner { display: grid; gap: clamp(3rem, 7vw, 4rem); }
 .closing .lede { margin-top: 0.75rem; color: #4C5C57; }
 .closing .label { margin-bottom: 0.75rem; }
@@ -311,8 +324,9 @@ button, input { font: inherit; color: inherit; }
 @media (min-width: 62rem) { .closing__inner { grid-template-columns: 1.1fr .9fr; align-items: center; gap: clamp(3rem, 6vw, 5rem); } }
 
 /* SIDFOT */
-.foot { padding-block: clamp(3rem, 7vw, 5rem) 2.5rem; }
-.foot__grid { display: grid; gap: 2.5rem; padding-block: clamp(2.5rem, 6vw, 4rem); }
+/* ↔ AVSTÅND: Vaddering för sidfoten (Minskat från clamp(3rem, 7vw, 5rem) 2.5rem) */
+.foot { padding-block: clamp(1.5rem, 3.5vw, 2.5rem) 1.25rem; }
+.foot__grid { display: grid; gap: 2.5rem; padding-block: clamp(1.25rem, 3vw, 2rem); }
 .foot__brand img { height: 60px; width: auto; margin-bottom: 0.75rem; }
 .foot__col { display: grid; gap: .6rem; align-content: start; }
 .foot__col .label { margin-bottom: .2rem; }
