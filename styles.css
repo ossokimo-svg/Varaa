@@ -189,7 +189,7 @@ button, input { font: inherit; color: inherit; }
 /* VÅR HISTORIA */
 .story__inner { display: grid; gap: clamp(3rem, 7vw, 4.5rem); }
 .story .label { margin-bottom: 0.25rem; }
-.story__text { margin-top: 0.5rem; color: var(--ink-soft); font-size: var(--fs-lede); max-width: 36rem; }
+.story__text { margin-top: 0.25rem; color: var(--ink-soft); font-size: var(--fs-lede); max-width: 36rem; }
 .story__text em { font-style: italic; color: var(--ink); }
 .figures { margin-top: clamp(0.5rem, 6vw, 3.5rem); border-top: 1px solid var(--rule); }
 .figures > div { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding: .85rem 0; border-bottom: 1px solid var(--rule); }
